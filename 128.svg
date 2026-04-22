@@ -1,0 +1,25 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad128" x1="0" y1="64" x2="128" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+
+  <path d="M64 22C46.88 22 33 35.88 33 53C33 63.63 38.33 72.99 46.43 78.58V89C46.43 91.76 48.67 94 51.43 94H76.57C78.33 94 81.57 91.76 81.57 89V78.58C89.67 72.99 95 63.63 95 53C95 35.88 81.12 22 64 22ZM64 29C77.25 29 88 39.75 88 53C88 61.94 83.1 69.75 75.83 74.02L74.57 74.77V87H53.43V74.77L52.17 74.02C44.9 69.75 40 61.94 40 53C40 39.75 50.75 29 64 29Z" fill="url(#grad128)"/>
+  
+  <rect x="53.43" y="99" width="21.14" height="4" rx="2" fill="url(#grad128)"/>
+  <path d="M57 107C57 110.31 59.69 113 63 113H65C68.31 113 71 110.31 71 107H57Z" fill="url(#grad128)"/>
+
+  <rect x="61.5" y="4" width="5" height="12" rx="2.5" fill="url(#grad128)"/>
+  <rect x="4" y="61.5" width="12" height="5" rx="2.5" fill="url(#grad128)"/>
+  <rect x="112" y="61.5" width="12" height="5" rx="2.5" fill="url(#grad128)"/>
+  <rect x="23.5" y="21.5" width="12" height="5" rx="2.5" transform="rotate(45 23.5 21.5)" fill="url(#grad128)"/>
+  <rect x="91.5" y="16.5" width="12" height="5" rx="2.5" transform="rotate(135 91.5 16.5)" fill="url(#grad128)"/>
+
+  <path d="M58 42L76 58L68.5 62L74.5 76L68 79L62 65L55 72L58 42Z" fill="url(#grad128)"/>
+  
+  <rect x="58" y="34" width="3" height="8" rx="1.5" fill="url(#grad128)"/>
+  <rect x="48.5" y="38.5" width="3" height="8" rx="1.5" transform="rotate(-45 48.5 38.5)" fill="url(#grad128)"/>
+  <rect x="69.5" y="36.5" width="3" height="8" rx="1.5" transform="rotate(45 69.5 36.5)" fill="url(#grad128)"/>
+</svg>

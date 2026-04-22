@@ -1,0 +1,47 @@
+{
+    "manifest_version": 3,
+    "name": "AI4COLAB Auto Input",
+    "version": "2.0.0",
+    "description": "AI4COLAB Smart Auto-Input — Automatically suggests text for input fields. Navigate with arrows, accept with Enter, dismiss with Escape.",
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "styles.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "16.svg"
+        }
+    },
+    "icons": {
+        "16": "16.svg",
+        "128": "128.svg"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "t.txt"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}

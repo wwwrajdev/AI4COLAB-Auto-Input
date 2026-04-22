@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════
+   AI4COLAB — Inline Feedback Styles
+   Premium Dark Theme (Standalone)
+   ═══════════════════════════════════════ */
+
+.ainput-inline-feedback-panel {
+    position: fixed;
+    min-width: 300px;
+    background: rgba(12, 12, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    animation: slideInFromBottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2147483645 !important;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.inline-feedback-header {
+    background: linear-gradient(135deg, rgba(66, 133, 244, 0.15) 0%, rgba(52, 168, 83, 0.1) 100%);
+    color: #e8e8f0;
+    padding: 10px 16px;
+    border-radius: 14px 14px 0 0;
+    font-weight: 600;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    letter-spacing: 0.3px;
+}
+
+.inline-feedback-close {
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 15px;
+    transition: all 0.2s;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.inline-feedback-close:hover {
+    opacity: 1;
+    background: rgba(234, 67, 53, 0.15);
+    color: #EA4335;
+}
+
+.inline-feedback-text {
+    padding: 10px 16px;
+    color: #8888a0;
+    font-size: 12px;
+    font-style: italic;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inline-feedback-actions {
+    padding: 10px 12px;
+    display: flex;
+    gap: 6px;
+}
+
+.inline-feedback-btn {
+    flex: 1;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #c8c8d8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.inline-feedback-btn:hover {
+    transform: translateY(-2px);
+}
+
+.inline-feedback-btn.like-btn:hover,
+.inline-feedback-btn.like-btn.active {
+    background: rgba(52, 168, 83, 0.15);
+    border-color: rgba(52, 168, 83, 0.35);
+    color: #34A853;
+    box-shadow: 0 4px 14px rgba(52, 168, 83, 0.15);
+}
+
+.inline-feedback-btn.dislike-btn:hover,
+.inline-feedback-btn.dislike-btn.active {
+    background: rgba(234, 67, 53, 0.15);
+    border-color: rgba(234, 67, 53, 0.35);
+    color: #EA4335;
+    box-shadow: 0 4px 14px rgba(234, 67, 53, 0.15);
+}

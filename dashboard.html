@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI4COLAB Auto Input — Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="header-left">
+                <svg width="180" height="40" viewBox="0 0 360 80" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-label="AI4COLAB logo">
+                    <defs>
+                        <style>
+                            .brand-text {
+                                font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+                                font-size: 52px;
+                                font-weight: 700;
+                                letter-spacing: 0;
+                            }
+                        </style>
+                        <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#34A853;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#EA4335;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(5, 15)">
+                        <circle cx="25" cy="25" r="23" fill="none" stroke="url(#iconGrad)" stroke-width="3" />
+                        <circle cx="25" cy="15" r="3.5" fill="#4285F4" />
+                        <circle cx="35" cy="25" r="3.5" fill="#34A853" />
+                        <circle cx="25" cy="35" r="3.5" fill="#EA4335" />
+                        <circle cx="15" cy="25" r="3.5" fill="#FBBC05" />
+                        <line x1="25" y1="15" x2="35" y2="25" stroke="#4285F4" stroke-width="2" opacity="0.6" />
+                        <line x1="35" y1="25" x2="25" y2="35" stroke="#34A853" stroke-width="2" opacity="0.6" />
+                        <line x1="25" y1="35" x2="15" y2="25" stroke="#EA4335" stroke-width="2" opacity="0.6" />
+                        <line x1="15" y1="25" x2="25" y2="15" stroke="#FBBC05" stroke-width="2" opacity="0.6" />
+                    </g>
+                    <text x="70" y="60" class="brand-text">
+                        <tspan fill="#4285F4">A</tspan>
+                        <tspan fill="#EA4335">I</tspan>
+                        <tspan fill="#FBBC05">4</tspan>
+                        <tspan fill="#4285F4">C</tspan>
+                        <tspan fill="#34A853">O</tspan>
+                        <tspan fill="#EA4335">L</tspan>
+                        <tspan fill="#4285F4">A</tspan>
+                        <tspan fill="#34A853">B</tspan>
+                    </text>
+                </svg>
+                <span class="header-badge">Dashboard</span>
+            </div>
+            <div class="header-actions">
+                <button id="exportBtn" class="btn btn-action">
+                    <span class="btn-icon">📤</span> Export
+                </button>
+                <button id="importBtn" class="btn btn-action">
+                    <span class="btn-icon">📥</span> Import
+                </button>
+                <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-card" data-accent="blue">
+                    <div class="stat-icon-wrap"><span>📝</span></div>
+                    <div class="stat-number" id="totalCount">0</div>
+                    <div class="stat-label">Total Suggestions</div>
+                </div>
+                <div class="stat-card" data-accent="green">
+                    <div class="stat-icon-wrap"><span>👍</span></div>
+                    <div class="stat-number" id="likedCount">0</div>
+                    <div class="stat-label">Liked</div>
+                </div>
+                <div class="stat-card" data-accent="red">
+                    <div class="stat-icon-wrap"><span>👎</span></div>
+                    <div class="stat-number" id="dislikedCount">0</div>
+                    <div class="stat-label">Disliked</div>
+                </div>
+                <div class="stat-card" data-accent="yellow">
+                    <div class="stat-icon-wrap"><span>✅</span></div>
+                    <div class="stat-number" id="usedCount">0</div>
+                    <div class="stat-label">Used</div>
+                </div>
+            </div>
+
+            <!-- Add New Text -->
+            <div class="add-section">
+                <h2><span class="section-icon">✨</span> Add New Suggestion</h2>
+                <div class="add-form">
+                    <textarea id="newTextInput"
+                        placeholder="Paste or type suggestions here... (each new line = separate suggestion)"></textarea>
+                    <button id="addBtn" class="btn btn-primary">
+                        <span>➕</span> Add to List
+                    </button>
+                </div>
+                <div class="toggle-section">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="useTxtToggle" checked>
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">Use t.txt file suggestions</span>
+                    </label>
+                </div>
+                <div class="slider-section">
+                    <label class="slider-label">
+                        <span class="slider-icon">⏱️</span>
+                        <span class="slider-text">Feedback Panel Auto-Hide</span>
+                        <span class="slider-value" id="hideTimerValue">1 min</span>
+                    </label>
+                    <input type="range" id="hideTimerSlider" class="premium-slider" min="10" max="300" value="60"
+                        step="10">
+                    <div class="slider-range-labels">
+                        <span>10s</span>
+                        <span>5 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="all">
+                    <span>📋</span> All
+                </button>
+                <button class="tab" data-tab="liked">
+                    <span>👍</span> Liked
+                </button>
+                <button class="tab" data-tab="disliked">
+                    <span>👎</span> Disliked
+                </button>
+                <button class="tab" data-tab="custom">
+                    <span>🎯</span> Custom
+                </button>
+            </div>
+
+            <!-- Suggestions List -->
+            <div class="suggestions-container">
+                <div class="actions-bar">
+                    <button id="copyLikedBtn" class="btn btn-action">
+                        <span class="btn-icon">📋</span> Copy Liked Text
+                    </button>
+                    <button id="clearAllBtn" class="btn btn-danger">
+                        <span class="btn-icon">🗑️</span> Clear All Data
+                    </button>
+                </div>
+                <div id="suggestionsList" class="suggestions-list">
+                    <div class="empty-state">
+                        <div class="empty-icon">💡</div>
+                        <p>No suggestions yet</p>
+                        <span class="empty-hint">Add some above or enable t.txt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="dashboard-footer">
+            <span>Powered by AI4COLAB</span>
+        </footer>
+    </div>
+
+    <script src="dashboard-script.js"></script>
+</body>
+
+</html>
